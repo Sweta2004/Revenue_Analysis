@@ -81,3 +81,60 @@ If you encounter issues:
 - **requirements.txt:** Lists Python packages needed for the app.
 app.py: Contains the main application logic.
 test_app.py: Contains the test cases for the application.
+
+
+# app.py
+
+## 1. Importing Pandas
+- **import pandas as pd**: We use Pandas, a powerful library for handling data, to read and analyze the CSV file.
+
+## 2. Reading the Data
+- **read_data(file_path)**: This function takes the path to our CSV file and loads the data into a Pandas DataFrame. If something goes wrong (like if the file isn’t found), it raises an error.
+
+## 3. Calculating Monthly Revenue
+- **compute_monthly_revenue(df)**: This function figures out how much revenue we made each month. It does this by:
+  - Converting the order dates into a format that Pandas can work with.
+  - Extracting just the month from these dates.
+  - Calculating the revenue for each order (price times quantity).
+  - Summing up the revenue for each month and converting the month column into a readable format.
+
+## 4. Calculating Revenue by Product
+- **compute_product_revenue(data)**: This function calculates the total revenue for each product. It groups the data by product name and sums up the revenue for each.
+
+## 5. Calculating Revenue by Customer
+- **compute_customer_revenue(data)**: This function calculates how much revenue each customer has generated. It groups the data by customer ID and sums up their revenue.
+
+## 6. Finding Top Customers
+- **top_customers_by_revenue(customer_revenue, top_n=10)**: This function identifies the top customers based on their total revenue. It sorts the customers by revenue in descending order and picks the top N (default is 10) customers.
+
+## 7. Putting It All Together
+- **main(file_path)**: This function orchestrates everything. It:
+  - Reads the data from the CSV file.
+  - Calculates monthly revenue, product revenue, and customer revenue.
+  - Finds the top customers by revenue.
+  - Returns all these results in a structured format.
+
+## 8. Running the Script
+- **Command-Line Execution**: If you run this script directly from the command line, it expects one argument: the path to the CSV file. It then processes the file and prints out:
+  - Monthly revenue
+  - Revenue by product
+  - Revenue by customer
+  - The top customers by revenue
+
+This script helps in analyzing revenue data by breaking it down into meaningful insights such as monthly trends, product performance, customer contributions, and identifying top customers.
+
+# test_app.py
+
+## How `test_app.py` Works with `app.py`
+
+1. **Imports Functions**:
+   - `test_app.py` imports functions from `app.py` so it can test them.
+
+2. **Defines Tests**:
+   - It creates specific tests for each function, checking if they give the right results.
+
+3. **Provides Sample Data**:
+   - `test_app.py` uses example data to test the functions.
+
+4. **Compares Results**:
+   - It runs the functions with the sample data and compares the actual output to the expected results.

@@ -1,4 +1,3 @@
-# app.py
 import pandas as pd
 
 def read_data(file_path):
@@ -56,6 +55,7 @@ if __name__ == "__main__":
     
     file_path = sys.argv[1]
     result = main(file_path)
+    
     print("Monthly Revenue:")
     print(result['monthly_revenue'])
     print("\nProduct Revenue:")
