@@ -50,11 +50,11 @@ Defines the image for the application, including all dependencies required to ru
 Defines the image for running tests, including all necessary dependencies.
 ## docker-compose.yml
 Manages multi-container setups, including:
-### app: The main application container.
-### test: The container for running tests.
-### postgres: The PostgreSQL database service.
+-**app:** The main application container.
+-**test:** The container for running tests.
+-**postgres:** The PostgreSQL database service.
 
-##Commands
+## Commands
 
 ### Build Docker Images:
 ```sh
