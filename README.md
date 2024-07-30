@@ -41,31 +41,47 @@ Before you start, ensure you have the following installed:
 
 Follow these steps to set up and run the application:
 
-### Build Docker Images
+# Docker Overview
+Docker is used to containerize the application, ensuring a consistent environment across different machines. Here's how Docker is used in this project:
 
+## Dockerfile
+Defines the image for the application, including all dependencies required to run app.py.
+## Dockerfile.test
+Defines the image for running tests, including all necessary dependencies.
+## docker-compose.yml
+Manages multi-container setups, including:
+### app: The main application container.
+### test: The container for running tests.
+### postgres: The PostgreSQL database service.
+
+##Commands
+
+### Build Docker Images:
 ```sh
-docker-compose build
+docker compose build
 ```
+This command builds the Docker images defined in the Dockerfiles.
 
-### Running the Application
-To start the application:
+### Running the Application:
 ```sh
-docker-compose up app
+docker compose up app
 ```
+This command starts the application container.
 
-### Running Tests
-To run tests:
+### Running Tests:
 ```sh
-docker-compose up test
+docker compose up test
 ```
-This command builds and starts the test container, running your test suite.
+This command starts the test container.
 
-### Stopping and Cleaning Up
-When finished, stop and remove all containers:
-``` sh
-docker-compose down
+### Stopping and Cleaning Up:
+```sh
+docker compose down
 ```
-Cleans up containers defined in docker-compose.yml.
+This command stops and removes all containers defined in the docker-compose.yml file.
+
+## PostgreSQL Integration
+The application uses PostgreSQL for data management. The docker-compose.yml file includes PostgreSQL as a service, along with the application and test services. 
 
 ## Troubleshooting
 If you encounter issues:
@@ -79,8 +95,8 @@ If you encounter issues:
 - **Dockerfile.test:** Defines the test image build.
 - **docker-compose.yml:** Docker Compose configuration.
 - **requirements.txt:** Lists Python packages needed for the app.
-app.py: Contains the main application logic.
-test_app.py: Contains the test cases for the application.
+- **app.py:** Contains the main application logic.
+- **test_app.py:** Contains the test cases for the application.
 
 
 # app.py
@@ -120,6 +136,10 @@ test_app.py: Contains the test cases for the application.
   - Revenue by product
   - Revenue by customer
   - The top customers by revenue
+ 
+## 9. PostgreSQL Integration
+-**Database Setup:** PostgreSQL is used for storing and managing the revenue data.
+The PostgreSQL service is defined in the docker-compose.yml file.
 
 This script helps in analyzing revenue data by breaking it down into meaningful insights such as monthly trends, product performance, customer contributions, and identifying top customers.
 
